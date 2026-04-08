@@ -3,545 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Môj veľkonočný denník – 2026</title>
+<title>Môj veľkonočný denník – Lukáš Drzík</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Fira+Code:wght@400;500&family=Indie+Flower&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0f0f;--surface:#161616;--card:#1b1b1b;--accent:#4fc3f7;--accent2:#81d4fa;
+  --yellow:#ffd54f;--green:#a5d6a7;--pink:#f48fb1;--purple:#ce93d8;
+  --text:#e8e3d5;--muted:#7a7a7a;--ink:#adb5bd;--border:#252525;
+  --font-hand:'Gochi Hand',cursive;--font-code:'Fira Code',monospace;--font-indie:'Indie Flower',cursive;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-code);min-height:100vh;overflow-x:hidden}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(79,195,247,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(79,195,247,0.025) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;z-index:0
+}
+body::after{content:'';position:fixed;top:0;bottom:0;left:80px;width:1px;background:rgba(239,83,80,0.1);pointer-events:none;z-index:0}
 
-  :root {
-    --bg: #121212;
-    --surface: #1a1a1a;
-    --card: #1e1e1e;
-    --accent: #4fc3f7;
-    --accent2: #81d4fa;
-    --text: #e8e3d5;
-    --muted: #9e9e9e;
-    --border: #2a2a2a;
-    --ink: #b0bec5;
-    --font-hand: 'Gochi Hand', cursive;
-    --font-code: 'Fira Code', monospace;
-    --font-indie: 'Indie Flower', cursive;
-  }
+.doodles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.doodle{position:absolute;font-family:var(--font-hand);opacity:0.05;user-select:none;animation:floatDoodle linear infinite}
 
-  html { scroll-behavior: smooth; }
+.container{max-width:820px;margin:0 auto;padding:2rem 1.5rem 5rem;position:relative;z-index:1}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-code);
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-  }
+header{text-align:center;padding:3.5rem 0 1.5rem;opacity:0;animation:fadeUp 1s ease forwards 0.2s}
+.header-line{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem}
+.header-line::before,.header-line::after{content:'';flex:1;max-width:80px;height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0,var(--accent) 5px,transparent 5px,transparent 9px)}
+.header-tag{font-family:var(--font-code);font-size:0.65rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase}
+h1{font-family:var(--font-hand);font-size:clamp(2rem,6vw,3.4rem);line-height:1.2;margin-bottom:0.6rem}
+h1 .uw{position:relative;color:var(--accent);display:inline-block}
+h1 .uw svg{position:absolute;bottom:-6px;left:0;width:100%;height:12px}
+.byline{font-family:var(--font-indie);font-size:1rem;color:var(--muted);margin-top:0.3rem}
+.byline span{color:var(--accent2)}
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
-    background-size: 24px 24px;
-    pointer-events: none;
-    z-index: 0;
-  }
+.progress-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:2rem 0 0.5rem}
+.prog-day{font-family:var(--font-indie);font-size:0.72rem;padding:4px 12px;border-radius:999px;border:1px solid var(--border);color:var(--muted);transition:all 0.4s ease}
+.prog-day.lit{border-color:var(--accent);color:var(--accent);background:rgba(79,195,247,0.07)}
 
-  .noise {
-    position: fixed;
-    inset: 0;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-  }
+.timeline{position:relative;padding-left:3rem;margin-top:2rem}
+.timeline::before{content:'';position:absolute;left:1rem;top:0;bottom:0;width:1px;background:repeating-linear-gradient(180deg,var(--accent) 0,var(--accent) 6px,transparent 6px,transparent 14px);opacity:0.2}
 
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-    position: relative;
-    z-index: 1;
-  }
+.entry{
+  position:relative;background:var(--card);border:1px solid var(--border);
+  border-radius:2px;padding:1.8rem 1.6rem 1.4rem;margin-bottom:1.8rem;
+  opacity:0;transform:translateX(-20px);
+  transition:opacity 0.5s ease,transform 0.5s ease,box-shadow 0.3s ease
+}
+.entry::before{content:'';position:absolute;top:-8px;left:40px;width:60px;height:18px;background:rgba(255,213,79,0.15);border-radius:2px;border:1px solid rgba(255,213,79,0.18);transform:rotate(-1.2deg)}
+.entry:nth-child(even)::before{left:auto;right:40px;transform:rotate(1.5deg)}
+.entry.visible{opacity:1;transform:translateX(0)}
+.entry:hover{box-shadow:4px 4px 0 rgba(79,195,247,0.07);transform:translateX(2px) rotate(0.1deg)}
 
-  header {
-    text-align: center;
-    padding: 3rem 0 2rem;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards 0.1s;
-  }
+.dot{position:absolute;left:-2.05rem;top:2rem;width:12px;height:12px;border-radius:50%;background:var(--card);border:2px solid var(--accent);transition:background 0.3s}
+.entry:hover .dot{background:var(--accent)}
 
-  .header-badge {
-    display: inline-block;
-    font-family: var(--font-code);
-    font-size: 0.7rem;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    padding: 3px 12px;
-    margin-bottom: 1rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+.entry-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.day-badge{font-family:var(--font-code);font-size:0.62rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#0f0f0f;padding:3px 10px;border-radius:3px;flex-shrink:0;margin-top:5px}
+.b-blue{background:var(--accent)}.b-yellow{background:var(--yellow)}.b-green{background:var(--green)}.b-pink{background:var(--pink)}.b-purple{background:var(--purple)}
 
-  h1 {
-    font-family: var(--font-hand);
-    font-size: clamp(2rem, 6vw, 3.2rem);
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
+.entry-title{font-family:var(--font-hand);font-size:1.4rem;line-height:1.25;color:var(--text)}
 
-  h1 span {
-    color: var(--accent);
-    position: relative;
-  }
+.entry-body{font-family:var(--font-code);font-size:0.8rem;line-height:1.9;color:var(--ink)}
+.entry-body p+p{margin-top:0.7rem}
+.hl{color:var(--accent);font-weight:500}.hl-y{color:var(--yellow)}.hl-g{color:var(--green)}.hl-p{color:var(--purple)}
 
-  h1 span::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 2px;
-    opacity: 0.4;
-  }
+.big-quote{font-family:var(--font-hand);font-size:1.05rem;color:rgba(79,195,247,0.5);border-left:3px solid rgba(79,195,247,0.2);padding-left:1rem;margin:1rem 0;line-height:1.5}
 
-  .subtitle {
-    font-family: var(--font-indie);
-    font-size: 1rem;
-    color: var(--muted);
-    margin-top: 0.5rem;
-  }
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+.tag{font-family:var(--font-code);font-size:0.62rem;border:1px dashed rgba(79,195,247,0.25);color:rgba(79,195,247,0.6);padding:2px 9px;border-radius:3px}
 
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 2.5rem 0;
-    opacity: 0.3;
-  }
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:1rem}
+.stat{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:3px;padding:8px 14px;font-family:var(--font-code);font-size:0.7rem;color:var(--muted);display:flex;align-items:baseline;gap:6px}
+.stat .val{font-size:1.1rem;font-weight:500;color:var(--accent)}
+.stat.s-y .val{color:var(--yellow)}.stat.s-g .val{color:var(--green)}
 
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: repeating-linear-gradient(
-      90deg, var(--accent) 0, var(--accent) 4px, transparent 4px, transparent 8px
-    );
-  }
+.sticker{position:absolute;font-family:var(--font-hand);font-size:0.75rem;color:rgba(255,213,79,0.3);transform:rotate(-8deg);pointer-events:none;right:1.2rem;top:1.2rem;line-height:1.4;text-align:center}
 
-  .divider-icon {
-    font-family: var(--font-code);
-    font-size: 0.75rem;
-    color: var(--accent);
-    white-space: nowrap;
-  }
+.code-wrap{background:#0a0e13;border:1px solid rgba(79,195,247,0.12);border-radius:3px;margin-top:1rem;overflow:hidden}
+.code-hdr{background:#111820;padding:6px 14px;display:flex;align-items:center;gap:8px;font-family:var(--font-code);font-size:0.62rem;color:var(--muted)}
+.cdots{display:flex;gap:5px}.cdots span{width:8px;height:8px;border-radius:50%}
+.code-body{padding:12px 16px;font-family:var(--font-code);font-size:0.73rem;line-height:1.75;color:#a8d8f0;overflow-x:auto}
+.kw{color:#c792ea}.str{color:#c3e88d}.cm{color:#4a6278;font-style:italic}.fn{color:#82aaff}.num{color:#f78c6c}
 
-  .entry {
-    background: var(--card);
-    border-radius: 4px;
-    padding: 1.75rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    opacity: 0;
-    transform: translateY(24px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--border);
-    clip-path: polygon(
-      0% 1px, 3px 0%, calc(100% - 2px) 1px, 100% 2px,
-      calc(100% - 1px) calc(100% - 3px), calc(100% - 3px) 100%,
-      2px calc(100% - 1px), 0% calc(100% - 2px)
-    );
-  }
+.chart-wrap{margin-top:1.2rem;padding:1rem;background:rgba(255,255,255,0.015);border-radius:3px;border:1px solid var(--border)}
+.chart-lbl{font-family:var(--font-indie);font-size:0.75rem;color:var(--muted);margin-bottom:10px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.bar-name{font-family:var(--font-code);font-size:0.65rem;color:var(--muted);width:70px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;height:8px;background:rgba(255,255,255,0.04);border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.bar-val{font-family:var(--font-code);font-size:0.62rem;color:var(--muted);width:45px;flex-shrink:0}
 
-  .entry::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+footer{text-align:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.8s ease forwards 1s}
+.footer-text{font-family:var(--font-indie);font-size:0.85rem;color:var(--muted)}
+.footer-text span{color:var(--accent)}
+.footer-code{font-family:var(--font-code);font-size:0.65rem;color:rgba(79,195,247,0.3);margin-top:6px}
 
-  .entry:hover {
-    transform: translateY(-2px) rotate(0.2deg);
-    box-shadow: 0 8px 32px rgba(79, 195, 247, 0.06);
-  }
+.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:99;width:38px;height:38px;border-radius:50%;background:rgba(79,195,247,0.1);border:1px solid rgba(79,195,247,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.3s;font-size:14px;color:var(--accent)}
+.scroll-top.show{opacity:1}
 
-  .entry:hover::before {
-    opacity: 1;
-  }
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatDoodle{0%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-18px) rotate(calc(var(--r,0deg) + 4deg))}100%{transform:translateY(0) rotate(var(--r,0deg))}}
 
-  .entry.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .entry-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .day-badge {
-    font-family: var(--font-code);
-    font-size: 0.65rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--bg);
-    background: var(--accent);
-    padding: 3px 10px;
-    border-radius: 3px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-
-  .entry-title {
-    font-family: var(--font-hand);
-    font-size: 1.35rem;
-    color: var(--text);
-    line-height: 1.3;
-  }
-
-  .entry-body {
-    font-family: var(--font-code);
-    font-size: 0.82rem;
-    line-height: 1.85;
-    color: var(--ink);
-  }
-
-  .entry-body p + p {
-    margin-top: 0.75rem;
-  }
-
-  .highlight {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .tag {
-    display: inline-block;
-    font-family: var(--font-code);
-    font-size: 0.65rem;
-    color: var(--accent);
-    border: 1px solid rgba(79, 195, 247, 0.3);
-    padding: 1px 8px;
-    border-radius: 3px;
-    margin-right: 6px;
-    margin-top: 12px;
-    opacity: 0.8;
-  }
-
-  .stats-row {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .stat-chip {
-    background: rgba(79, 195, 247, 0.06);
-    border: 1px dashed rgba(79, 195, 247, 0.3);
-    border-radius: 4px;
-    padding: 6px 14px;
-    font-family: var(--font-code);
-    font-size: 0.72rem;
-    color: var(--accent2);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .stat-chip .val {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--accent);
-  }
-
-  .code-block {
-    background: #0d1117;
-    border: 1px solid rgba(79, 195, 247, 0.15);
-    border-radius: 4px;
-    padding: 10px 14px;
-    margin-top: 1rem;
-    font-family: var(--font-code);
-    font-size: 0.72rem;
-    color: #a8d8f0;
-    line-height: 1.7;
-    overflow-x: auto;
-  }
-
-  .code-block .kw { color: #c792ea; }
-  .code-block .str { color: #c3e88d; }
-  .code-block .cm { color: #546e7a; font-style: italic; }
-  .code-block .fn { color: #82aaff; }
-
-  .wiggle {
-    display: inline-block;
-    transition: transform 0.2s ease;
-  }
-  .wiggle:hover {
-    animation: wiggleAnim 0.4s ease;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    left: -1.25rem;
-    top: 1.9rem;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid var(--bg);
-    box-shadow: 0 0 8px rgba(79, 195, 247, 0.5);
-    display: none;
-  }
-
-  .timeline-wrapper {
-    position: relative;
-    padding-left: 2rem;
-  }
-
-  .timeline-wrapper::before {
-    content: '';
-    position: absolute;
-    left: 0.35rem;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: repeating-linear-gradient(
-      180deg,
-      var(--accent) 0,
-      var(--accent) 4px,
-      transparent 4px,
-      transparent 10px
-    );
-    opacity: 0.25;
-  }
-
-  .timeline-wrapper .entry {
-    position: relative;
-  }
-
-  .timeline-wrapper .entry .timeline-dot {
-    display: block;
-  }
-
-  footer {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--font-code);
-    font-size: 0.72rem;
-    color: var(--muted);
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.5s;
-  }
-
-  footer .accent { color: var(--accent); }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes wiggleAnim {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(-3deg); }
-    50%  { transform: rotate(3deg); }
-    75%  { transform: rotate(-2deg); }
-    100% { transform: rotate(0deg); }
-  }
-
-  @media (max-width: 600px) {
-    .container { padding: 1rem 1rem 3rem; }
-    .entry { padding: 1.25rem; }
-    .stats-row { flex-direction: column; }
-    h1 { font-size: 1.8rem; }
-    .timeline-wrapper { padding-left: 1.5rem; }
-  }
+@media(max-width:600px){
+  .container{padding:1rem 1rem 4rem}
+  .timeline{padding-left:2rem}
+  body::after{left:50px}
+  .entry{padding:1.2rem 1rem}
+  h1{font-size:1.9rem}
+  .stats{flex-direction:column}
+}
 </style>
 </head>
 <body>
-<div class="noise"></div>
+
+<div class="doodles" id="doodles"></div>
 
 <div class="container">
 
   <header>
-    <div class="header-badge">// denník · 2026</div>
-    <h1>Môj denník z <span>veľkonočných</span> prázdnin</h1>
-    <p class="subtitle">Streda 2. 4. — Pondelok 6. 4. 2026 &nbsp;·&nbsp; miništrант &amp; programátor</p>
+    <div class="header-line"><span class="header-tag">// denník · veľká noc · 2026</span></div>
+    <h1>
+      Môj denník z
+      <span class="uw">veľkonočných
+        <svg viewBox="0 0 220 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 8 Q55 2 110 8 Q165 14 216 6" stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      prázdnin
+    </h1>
+    <p class="byline">Napísal <span>Lukáš Drzík</span> &nbsp;·&nbsp; 2.–8. apríla 2026</p>
+    <div class="progress-bar">
+      <div class="prog-day">Streda</div>
+      <div class="prog-day">Štvrtok</div>
+      <div class="prog-day">Piatok</div>
+      <div class="prog-day">Sobota</div>
+      <div class="prog-day">Nedeľa</div>
+      <div class="prog-day">Pondelok</div>
+    </div>
   </header>
 
-  <div class="divider">
-    <span class="divider-icon">≡ entries</span>
-  </div>
+  <div class="timeline">
 
-  <div class="timeline-wrapper">
-
-    <!-- STREDA -->
-    <div class="entry" data-delay="0">
-      <div class="timeline-dot"></div>
+    <div class="entry" data-delay="0" data-idx="0">
+      <div class="dot"></div>
+      <div class="sticker">zvonenie!<br>&#10003;</div>
       <div class="entry-header">
-        <span class="day-badge">Streda</span>
-        <h2 class="entry-title wiggle">Posledné zvonenie a začiatok služby</h2>
+        <span class="day-badge b-blue">Streda</span>
+        <h2 class="entry-title">Posledné zvonenie a začiatok služby</h2>
       </div>
       <div class="entry-body">
-        <p>V škole sme už všetci odpočítavali minúty do konca vyučovania. Keď konečne zazvonilo, cítil som obrovskú predprázdninovú radosť. Moje voľno sa však nezačalo len oddychom.</p>
-        <p>Keďže som sa rozhodol počas celých sviatkov <span class="highlight">miništrovať</span>, hneď večer som bol v kostole na prvej príprave. Cestou domov som už premýšľal nad svojím veľkým technickým projektom, ktorému som chcel venovať nasledujúce dni.</p>
+        <p>V škole sme už všetci odpočítavali minúty do konca vyučovania. Keď konečne zazvonilo, cítil som obrovskú <span class="hl">predprázdninovú radosť</span>. Moje voľno sa však nezačalo len oddychom.</p>
+        <p>Keďže som sa rozhodol počas celých sviatkov <span class="hl">miništrovať</span>, hneď večer som bol v kostole na prvej príprave. Cestou domov som už premýšľal nad svojím veľkým technickým projektom.</p>
       </div>
-      <span class="tag">#škola</span>
-      <span class="tag">#kostol</span>
-      <span class="tag">#plány</span>
+      <div class="tags"><span class="tag">#škola</span><span class="tag">#kostol</span><span class="tag">#plány</span></div>
     </div>
 
-    <!-- ŠTVRTOK -->
-    <div class="entry" data-delay="100">
-      <div class="timeline-dot"></div>
+    <div class="entry" data-delay="100" data-idx="1">
+      <div class="dot"></div>
+      <div class="sticker">zelený<br>štvrtok</div>
       <div class="entry-header">
-        <span class="day-badge">Štvrtok</span>
-        <h2 class="entry-title wiggle">Zelený štvrtok a plánovanie</h2>
+        <span class="day-badge b-green">Štvrtok</span>
+        <h2 class="entry-title">Zelený štvrtok a plánovanie</h2>
       </div>
       <div class="entry-body">
-        <p>Ráno som si doprial dlhší spánok, aby som načerpal sily. Deň som trávil skôr oddychovo, pomáhal som doma s nákupmi a prípravami na sviatky.</p>
-        <p>Večer som už opäť stál pri <span class="highlight">oltári na bohoslužbe Zeleného štvrtka</span>. Atmosféra v kostole bola veľmi slávnostná a po návrate domov som išiel skoro spať, aby som bol pripravený na náročný piatok.</p>
+        <p>Ráno som si doprial dlhší spánok, aby som načerpal sily. Deň som trávil skôr oddychovo — pomáhal som doma s nákupmi a prípravami na sviatky.</p>
+        <p>Večer som opäť stál pri <span class="hl-g">oltári na bohoslužbe Zeleného štvrtka</span>. Atmosféra v kostole bola veľmi slávnostná.</p>
       </div>
-      <span class="tag">#odpočinok</span>
-      <span class="tag">#liturgia</span>
+      <div class="tags"><span class="tag">#odpočinok</span><span class="tag">#liturgia</span><span class="tag">#rodina</span></div>
     </div>
 
-    <!-- PIATOK -->
-    <div class="entry" data-delay="200">
-      <div class="timeline-dot"></div>
+    <div class="entry" data-delay="200" data-idx="2">
+      <div class="dot"></div>
+      <div class="sticker">4 hodiny<br>v kostole</div>
       <div class="entry-header">
-        <span class="day-badge">Piatok</span>
-        <h2 class="entry-title wiggle">Deň pokánia a 4 hodiny v kostole</h2>
+        <span class="day-badge b-purple">Piatok</span>
+        <h2 class="entry-title">Veľký piatok — deň pokánia</h2>
       </div>
       <div class="entry-body">
-        <p>Veľký piatok bol pre mňa ako miništranta fyzicky aj psychicky <span class="highlight">najnáročnejší</span>. V kostole sme pri obradoch a službe strávili celkovo <span class="highlight">4 hodiny</span>. Vyžadovalo si to veľkú mieru sústredenia a disciplíny, najmä pri dlhom čítaní pašií a poklone krížu.</p>
-        <p>Keď som prišiel domov, bol som úplne vyčerpaný a potreboval som len ticho. Na prácu s počítačom som v tento deň nemal energiu.</p>
+        <p>Veľký piatok bol pre mňa ako miništranta fyzicky aj psychicky <span class="hl-p">najnáročnejší</span>. V kostole sme pri obradoch strávili celkovo <span class="hl-p">4 hodiny</span> — dlhé čítanie pašií, poklona krížu.</p>
+        <p>Keď som prišiel domov, bol som úplne vyčerpaný a potreboval som len ticho. Na prácu s počítačom som nemal energiu.</p>
       </div>
-      <div class="stats-row">
-        <div class="stat-chip"><span class="val">4</span> hodiny v kostole</div>
-        <div class="stat-chip"><span class="val">0</span> riadkov kódu</div>
+      <div class="stats">
+        <div class="stat"><span class="val">4</span> hodiny v kostole</div>
+        <div class="stat"><span class="val">0</span> riadkov kódu</div>
       </div>
-      <span class="tag">#viera</span>
-      <span class="tag">#odpočinok</span>
+      <div class="tags"><span class="tag">#viera</span><span class="tag">#disciplína</span><span class="tag">#únava</span></div>
     </div>
 
-    <!-- SOBOTA -->
-    <div class="entry" data-delay="300">
-      <div class="timeline-dot"></div>
+    <div class="entry" data-delay="300" data-idx="3">
+      <div class="dot"></div>
+      <div class="sticker">MARATÓN<br>1500+ riadkov</div>
       <div class="entry-header">
-        <span class="day-badge">Sobota</span>
-        <h2 class="entry-title wiggle">Programátorský maratón — 1500 riadkov kódu</h2>
+        <span class="day-badge b-yellow">Sobota</span>
+        <h2 class="entry-title">Programátorský maratón</h2>
       </div>
       <div class="entry-body">
-        <p>V sobotu som sa naplno pustil do svojho hlavného projektu — tvorby vlastného <span class="highlight">„Discord bota"</span>. Ide o zložitý počítačový program, ktorý slúži na automatickú správu komunikácie v internetovej skupine.</p>
-        <p>Bol to pre mňa skutočný programátorský maratón. Písaním a ladením kódu som strávil takmer celý deň, pričom som musel vytvoriť celú logiku programu a ošetriť technické chyby. Večer som si od počítača odbehol opäť do kostola na <span class="highlight">slávnostnú vigíliu</span>, čo mi pomohlo trochu si oddýchnuť od monitora.</p>
+        <p>V sobotu som sa naplno pustil do tvorby vlastného <span class="hl">„Discord bota"</span> — zložitého programu na automatickú správu komunikácie v internetovej skupine.</p>
+        <p>Bol to skutočný maratón. Takmer celý deň som písaním a ladením kódu tvoril celú logiku programu a ošetroval technické chyby.</p>
+        <div class="big-quote">"Keď ti kód prvýkrát zafunguje bez erroru o 23:47 — to je iný pocit."</div>
+        <p>Večer som si od monitora odbehol na <span class="hl">slávnostnú vigíliu</span>, čo mi pomohlo oddýchnuť.</p>
       </div>
-      <div class="code-block">
-        <span class="cm">// Discord bot – handler pre príkazy</span><br>
-        <span class="kw">client</span>.<span class="fn">on</span>(<span class="str">'messageCreate'</span>, <span class="kw">async</span> msg =&gt; {<br>
-        &nbsp;&nbsp;<span class="kw">if</span> (!msg.content.startsWith(<span class="str">'!'</span>)) <span class="kw">return</span>;<br>
-        &nbsp;&nbsp;<span class="kw">const</span> [cmd, ...args] = msg.content.slice(<span class="str">1</span>).split(<span class="str">' '</span>);<br>
-        &nbsp;&nbsp;<span class="fn">handleCommand</span>(cmd, args, msg);<br>
-        });
+      <div class="code-wrap">
+        <div class="code-hdr">
+          <div class="cdots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+          <span>discord-bot.js</span>
+        </div>
+        <div class="code-body">
+<span class="cm">// hlavný handler pre príkazy</span><br>
+<span class="kw">client</span>.<span class="fn">on</span>(<span class="str">'messageCreate'</span>, <span class="kw">async</span> msg =&gt; {<br>
+&nbsp;&nbsp;<span class="kw">if</span> (!msg.content.startsWith(<span class="str">'!'</span>)) <span class="kw">return</span>;<br>
+&nbsp;&nbsp;<span class="kw">const</span> [cmd, ...args] = msg.content.slice(<span class="num">1</span>).split(<span class="str">' '</span>);<br>
+&nbsp;&nbsp;<span class="kw">await</span> <span class="fn">handleCommand</span>(cmd, args, msg);<br>
+});<br><br>
+<span class="cm">// auto-moderácia a správa servera</span><br>
+<span class="kw">async function</span> <span class="fn">handleCommand</span>(cmd, args, msg) {<br>
+&nbsp;&nbsp;<span class="kw">const</span> cmds = { ban, kick, mute, warn, stats };<br>
+&nbsp;&nbsp;<span class="kw">if</span> (cmds[cmd]) <span class="kw">await</span> cmds[cmd](args, msg);<br>
+}
+        </div>
       </div>
-      <div class="stats-row">
-        <div class="stat-chip"><span class="val">1500+</span> riadkov</div>
-        <div class="stat-chip"><span class="val">~10</span> hodín kódenia</div>
+      <div class="chart-wrap">
+        <div class="chart-lbl">Počet riadkov kódu počas dňa</div>
+        <div class="bar-row"><span class="bar-name">09:00</span><div class="bar-track"><div class="bar-fill" style="background:#4fc3f7" data-w="8"></div></div><span class="bar-val">~120</span></div>
+        <div class="bar-row"><span class="bar-name">12:00</span><div class="bar-track"><div class="bar-fill" style="background:#4fc3f7" data-w="30"></div></div><span class="bar-val">~450</span></div>
+        <div class="bar-row"><span class="bar-name">15:00</span><div class="bar-track"><div class="bar-fill" style="background:#4fc3f7" data-w="55"></div></div><span class="bar-val">~825</span></div>
+        <div class="bar-row"><span class="bar-name">18:00</span><div class="bar-track"><div class="bar-fill" style="background:#ffd54f" data-w="75"></div></div><span class="bar-val">~1125</span></div>
+        <div class="bar-row"><span class="bar-name">23:47</span><div class="bar-track"><div class="bar-fill" style="background:#a5d6a7" data-w="100"></div></div><span class="bar-val">1500+</span></div>
       </div>
-      <span class="tag">#discord</span>
-      <span class="tag">#javascript</span>
-      <span class="tag">#maratón</span>
+      <div class="stats">
+        <div class="stat s-y"><span class="val">1500+</span> riadkov</div>
+        <div class="stat"><span class="val">~10 hod</span> práce</div>
+        <div class="stat s-g"><span class="val">funguje!</span></div>
+      </div>
+      <div class="tags"><span class="tag">#discord</span><span class="tag">#javascript</span><span class="tag">#nodejs</span><span class="tag">#maratón</span></div>
     </div>
 
-    <!-- NEDEĽA -->
-    <div class="entry" data-delay="400">
-      <div class="timeline-dot"></div>
+    <div class="entry" data-delay="400" data-idx="4">
+      <div class="dot"></div>
+      <div class="sticker">funguje!<br>&#9733;</div>
       <div class="entry-header">
-        <span class="day-badge">Nedeľa</span>
-        <h2 class="entry-title wiggle">Úspešné finále projektu a ranná omša</h2>
+        <span class="day-badge b-green">Nedeľa</span>
+        <h2 class="entry-title">Úspešné finále projektu</h2>
       </div>
       <div class="entry-body">
-        <p>V nedeľu ráno som s napätím kontroloval výsledky svojej práce. Bol som nadšený, pretože môj program bol už ráno <span class="highlight">plne funkčný</span>. Keď som si prešiel štatistiky kódu, zistil som, že som napísal viac ako 1500 riadkov, čo je na jeden víkend poriadny kus práce.</p>
-        <p>Hneď potom som išiel miništrovať na <span class="highlight">slávnostnú rannú omšu</span>. Zvyšok nedele už patril rodine a spoločnému obedu. Večer som si ešte pripravil korbáč na pondelok.</p>
+        <p>V nedeľu ráno som s napätím kontroloval výsledky. Bol som nadšený — môj program bol <span class="hl">plne funkčný</span>. Viac ako 1500 riadkov za jeden víkend — poriadny kus práce.</p>
+        <p>Hneď potom som išiel miništrovať na <span class="hl">slávnostnú rannú omšu</span>. Zvyšok nedele patril rodine a spoločnému obedu. Večer som si pripravil korbáč na pondelok.</p>
       </div>
-      <span class="tag">#hotovo</span>
-      <span class="tag">#omša</span>
-      <span class="tag">#rodina</span>
+      <div class="stats">
+        <div class="stat s-g"><span class="val">&#10003; DONE</span> projekt hotový</div>
+      </div>
+      <div class="tags"><span class="tag">#hotovo</span><span class="tag">#omša</span><span class="tag">#rodina</span></div>
     </div>
 
-    <!-- PONDELOK -->
-    <div class="entry" data-delay="500">
-      <div class="timeline-dot"></div>
+    <div class="entry" data-delay="500" data-idx="5">
+      <div class="dot"></div>
+      <div class="sticker">šibačka!<br>&#10022;</div>
       <div class="entry-header">
-        <span class="day-badge">Pondelok</span>
-        <h2 class="entry-title wiggle">Tradície a pohľad do budúcnosti</h2>
+        <span class="day-badge b-pink">Pondelok</span>
+        <h2 class="entry-title">Tradície a pohľad do budúcnosti</h2>
       </div>
       <div class="entry-body">
-        <p>Dnešok bol v znamení tradícií. Vstával som skoro ráno, aby som stihol <span class="highlight">vyšibať celú rodinu</span>. Poobede, keď už bolo po šibačke, som mal čas premýšľať.</p>
-        <p>Programovaniu sa venujem približne <span class="highlight">rok</span> a hoci pri ňom netrávim všetok svoj čas, snažím sa učiť efektívne, aby som toho vedel čo najviac. Dokonca aj tento denník som v stredu <span class="highlight">8. 4. 2026</span> sfinalizoval pomocou kódu a technológií, ktoré bežne využívam.</p>
-        <p>Verím, že tieto zručnosti sú pre moju budúcnosť kľúčové. Technológie idú rýchlo dopredu a ľudí, ktorí im rozumejú a vedia ich tvoriť, je stále málo. Boli to produktívne prázdniny, ktoré ma opäť posunuli vpred.</p>
+        <p>Dnešok bol v znamení tradícií. Vstával som skoro ráno, aby som stihol <span class="hl">vyšibať celú rodinu</span>.</p>
+        <p>Programovaniu sa venujem približne <span class="hl">rok</span>. Dokonca aj tento denník som 8. 4. 2026 sfinalizoval pomocou kódu a technológií, ktoré bežne využívam.</p>
+        <div class="big-quote">"Technológie idú rýchlo dopredu a ľudí, ktorí im rozumejú a vedia ich tvoriť, je stále málo."</div>
+        <p>Boli to <span class="hl">produktívne prázdniny</span>, ktoré ma opäť posunuli vpred.</p>
       </div>
-      <div class="stats-row">
-        <div class="stat-chip"><span class="val">~1</span> rok programovania</div>
-        <div class="stat-chip"><span class="val">∞</span> motivácie</div>
+      <div class="stats">
+        <div class="stat"><span class="val">~1 rok</span> programovania</div>
+        <div class="stat s-g"><span class="val">&#8734;</span> motivácie</div>
       </div>
-      <span class="tag">#tradície</span>
-      <span class="tag">#budúcnosť</span>
-      <span class="tag">#programovanie</span>
+      <div class="tags"><span class="tag">#tradície</span><span class="tag">#budúcnosť</span><span class="tag">#programovanie</span><span class="tag">#rast</span></div>
     </div>
 
-  </div><!-- end timeline-wrapper -->
-
-  <div class="divider">
-    <span class="divider-icon">// end of entries</span>
   </div>
 
   <footer>
-    <p>Napísal: <span class="accent">Lukáš Drzík</span> &nbsp;·&nbsp; Sfinalizované <span class="accent">8. 4. 2026</span></p>
-    <p style="margin-top:6px; font-size:0.65rem; opacity:0.5;">// built with vanilla HTML · CSS · JS &nbsp;·&nbsp; hosted on GitHub Pages</p>
+    <p class="footer-text">Napísal <span>Lukáš Drzík</span> &nbsp;·&nbsp; Sfinalizované <span>8. 4. 2026</span></p>
+    <p class="footer-code">// built with vanilla HTML · CSS · JS &nbsp;·&nbsp; hosted on GitHub Pages</p>
   </footer>
 
-</div><!-- end container -->
+</div>
+
+<div class="scroll-top" id="st" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
 
 <script>
-  const entries = document.querySelectorAll('.entry');
+const words=['x = 5','var i','if(){}','bot','// todo','git push','npm i','1500','console.log','async','await','return','const','===','Veľká noc','miništrant','korbáč','vigília','omša','*','01101','ping!','error','debug','deploy','#','{}','[]','=>','škola','zvonenie','prázdniny','&#10003;','&#9733;'];
+const dd=document.getElementById('doodles');
+for(let i=0;i<45;i++){
+  const d=document.createElement('div');
+  d.className='doodle';
+  d.innerHTML=words[Math.floor(Math.random()*words.length)];
+  const r=-18+Math.random()*36;
+  d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${0.55+Math.random()*0.9}rem;--r:${r}deg;transform:rotate(${r}deg);animation-duration:${9+Math.random()*14}s;animation-delay:${-Math.random()*12}s`;
+  dd.appendChild(d);
+}
 
-  const observer = new IntersectionObserver((items) => {
-    items.forEach(item => {
-      if (item.isIntersecting) {
-        const delay = parseInt(item.target.dataset.delay) || 0;
-        setTimeout(() => item.target.classList.add('visible'), delay);
-        observer.unobserve(item.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  entries.forEach(e => observer.observe(e));
-
-  document.querySelectorAll('.wiggle').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      el.style.animation = 'none';
-      el.offsetHeight;
-      el.style.animation = 'wiggleAnim 0.4s ease';
-    });
-    el.addEventListener('animationend', () => {
-      el.style.animation = '';
-    });
+const progs=document.querySelectorAll('.prog-day');
+const obs=new IntersectionObserver(items=>{
+  items.forEach(item=>{
+    if(item.isIntersecting){
+      const el=item.target;
+      const delay=parseInt(el.dataset.delay)||0;
+      setTimeout(()=>el.classList.add('visible'),delay);
+      const idx=parseInt(el.dataset.idx);
+      if(!isNaN(idx)) setTimeout(()=>progs[idx]&&progs[idx].classList.add('lit'),delay+200);
+      el.querySelectorAll('.bar-fill').forEach((b,i)=>{
+        setTimeout(()=>{b.style.width=b.dataset.w+'%'},delay+400+i*160);
+      });
+      obs.unobserve(el);
+    }
   });
+},{threshold:0.08});
+document.querySelectorAll('.entry').forEach(e=>obs.observe(e));
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('st').classList.toggle('show',window.scrollY>400);
+});
 </script>
 </body>
 </html>
